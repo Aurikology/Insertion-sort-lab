@@ -271,10 +271,10 @@ def run_lab(text, show_comparisons=True):
 
     # Build comprehensive analysis summary
     summary_lines = [
-        "═" * 70,
+        "=" * 70,
         "INSERTION SORT ANALYSIS",
-        "═" * 70,
-        f"✓ Sorted {len(arr)} elements successfully",
+        "=" * 70,
+        f"Sorted {len(arr)} elements successfully",
         "",
         "RESULTS",
         f"  Input:  {arr}",
@@ -308,26 +308,26 @@ def run_lab(text, show_comparisons=True):
         f"  • Stable: Preserves relative order of equal elements",
         f"  • In-place: Requires O(1) extra space",
         f"  • Online: Can sort data as it receives it",
-        "═" * 70
+        "=" * 70
     ]
     summary = "\n".join(summary_lines)
 
     # Build detailed step-by-step execution trace
     trace_lines = []
-    trace_lines.append("┏" + "━" * 68 + "┓")
-    trace_lines.append("┃ " + "STEP-BY-STEP EXECUTION TRACE".center(66) + " ┃")
-    trace_lines.append("┗" + "━" * 68 + "┛")
+    trace_lines.append("+" + "-" * 68 + "+")
+    trace_lines.append("| " + "STEP-BY-STEP EXECUTION TRACE".center(66) + " |")
+    trace_lines.append("+" + "-" * 68 + "+")
     
     for idx, step in enumerate(steps):
-        trace_lines.append(f"\n┌─ STEP {idx:02d} " + "─" * 56)
-        trace_lines.append(f"│ Action: {step['description']}")
+        trace_lines.append(f"\n+-- STEP {idx:02d} " + "-" * 56)
+        trace_lines.append(f"| Action: {step['description']}")
         
         # Format array with visual separators
-        array_visual = " → ".join(f"[{x}]" for x in step['array'])
-        trace_lines.append(f"│ Array:  {array_visual}")
-        trace_lines.append(f"│ Indices: i={step['i']}, j={step['j']}")
-        trace_lines.append(f"│ Stats:  {step['comparisons']} comps | {step['moves']} moves | {step['accesses']} accesses")
-        trace_lines.append(f"└" + "─" * 68)
+        array_visual = " -> ".join(f"[{x}]" for x in step['array'])
+        trace_lines.append(f"| Array:  {array_visual}")
+        trace_lines.append(f"| Indices: i={step['i']}, j={step['j']}")
+        trace_lines.append(f"| Stats:  {step['comparisons']} comps | {step['moves']} moves | {step['accesses']} accesses")
+        trace_lines.append(f"+" + "-" * 68)
 
     steps_text = "\n".join(trace_lines)
 
@@ -348,14 +348,14 @@ def run_lab(text, show_comparisons=True):
                 <td style="padding: 12px; text-align: center;">{comparisons}</td>
                 {('<td style="padding: 12px; text-align: center;">' + str(bubble_comps) + '</td>' if show_comparisons else '')}
                 {('<td style="padding: 12px; text-align: center;">' + str(quick_comps) + '</td>' if show_comparisons else '')}
-                <td style="padding: 12px; text-align: center;">{('🏆 Insertion' if not show_comparisons else ('🏆 Insertion' if comparisons <= min(bubble_comps, quick_comps) else '🏆 Quick' if quick_comps <= bubble_comps else '🏆 Bubble'))}</td>
+                <td style="padding: 12px; text-align: center;">{('Insertion' if not show_comparisons else ('Insertion' if comparisons <= min(bubble_comps, quick_comps) else 'Quick' if quick_comps <= bubble_comps else 'Bubble'))}</td>
             </tr>
             <tr style="border-bottom: 1px solid rgba(255,255,255,0.2);">
                 <td style="padding: 12px;"><b>Array Moves</b></td>
                 <td style="padding: 12px; text-align: center;">{moves}</td>
                 {('<td style="padding: 12px; text-align: center;">' + str(bubble_moves) + '</td>' if show_comparisons else '')}
                 {('<td style="padding: 12px; text-align: center;">' + str(quick_moves) + '</td>' if show_comparisons else '')}
-                <td style="padding: 12px; text-align: center;">{'🏆' if moves <= min(bubble_moves, quick_moves) else ''}</td>
+                <td style="padding: 12px; text-align: center;">{'Best' if moves <= min(bubble_moves, quick_moves) else ''}</td>
             </tr>
             <tr>
                 <td style="padding: 12px;"><b>Total Operations</b></td>
@@ -369,8 +369,8 @@ def run_lab(text, show_comparisons=True):
         <h4>Algorithm Rankings (Lower is Better):</h4>
         <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; margin-top: 10px;">
             {('' if show_comparisons else '<p>Comparisons disabled for single-algorithm mode.</p>')}
-            {('<p>🥇 Insertion Sort wins on comparisons!</p>' if comparisons <= min(bubble_comps, quick_comps) else '') if show_comparisons else ''}
-            {('<p>🥇 Quick Sort is most efficient overall!</p>' if quick_comps + quick_moves <= comparisons + moves else '') if show_comparisons else ''}
+            {('<p><strong>Insertion Sort wins on comparisons</strong></p>' if comparisons <= min(bubble_comps, quick_comps) else '') if show_comparisons else ''}
+            {('<p><strong>Quick Sort is most efficient overall</strong></p>' if quick_comps + quick_moves <= comparisons + moves else '') if show_comparisons else ''}
             <p>Array Size: <strong>{len(arr)}</strong> elements</p>
         </div>
     </div>
@@ -391,7 +391,7 @@ def run_lab(text, show_comparisons=True):
         } if show_comparisons else {})
     })
 
-    return summary, steps_text, html_viz, json_data, "✅ Analysis Complete"
+    return summary, steps_text, html_viz, json_data, "Analysis Complete"
 
 
 # ==================== GRADIO USER INTERFACE ====================
@@ -401,11 +401,10 @@ with gr.Blocks(title="Insertion Sort Laboratory") as demo:
     
     # Header section
     gr.Markdown("""
-    # Insertion Sort Laboratory
-    #### Interactive Algorithm Analysis & Visualization
-    
-    Explore insertion sort with algorithmic analysis, real-time comparisons with bubble sort and quicksort,
-    and comprehensive performance metrics.
+    <div style="font-family: 'Georgia', 'Times New Roman', serif; background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 20px;">
+        <h1 style="margin: 0; font-size: 2.5em; font-weight: 600;">Insertion Sort Laboratory</h1>
+        <p style="margin: 10px 0 0 0; font-size: 1.1em; opacity: 0.95;">Interactive Algorithm Analysis and Visualization</p>
+    </div>
     """)
 
     # Main input/instruction section
@@ -451,7 +450,7 @@ with gr.Blocks(title="Insertion Sort Laboratory") as demo:
                 interactive=True
             )
             comparisons_toggle = gr.Checkbox(label="Show algorithm comparisons (bubble & quick)", value=False)
-            submit_btn = gr.Button("🚀 ANALYZE & VISUALIZE", size="lg", variant="primary")
+            submit_btn = gr.Button("ANALYZE & VISUALIZE", size="lg", variant="primary")
 
     gr.Markdown("---")
 
