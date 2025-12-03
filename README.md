@@ -5,6 +5,8 @@ An interactive visualization tool that demonstrates the insertion sort algorithm
 ## Screenshots & Testing Evidence
 
 ![Random input demo](screen_shots/Random_input_first_test.png)
+
+
 *Figure 1: Random input test - demonstrates sorting of mixed numbers*
 
 ![Random input Analysis](screen_shots/Random_input_analysis.png)
