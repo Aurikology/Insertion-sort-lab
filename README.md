@@ -227,7 +227,7 @@ The problem is broken down into distinct, manageable components:
 
 ## Hugging Face Link
 
-- Live app: *(paste your Hugging Face Spaces URL here after deployment, e.g., `https://huggingface.co/spaces/Aurikology/insertion-sort-lab`)*
+- Live app: *(paste your Hugging Face Spaces URL here after deployment, e.g., `https://huggingface.co/spaces/Aurikology/Insertion-Sort-Lab`)*
 
 ---
 
