@@ -292,3 +292,12 @@ This final project focuses on a single algorithm: Insertion Sort. The Gradio UI 
 AI Use: Within “Open book, at-home. AI use up to Level 4.” No copyrighted code was copied; implementation and explanations are original.
 
 If the marking requires strictly one algorithm, please grade only the insertion sort components; the comparative metrics can be ignored without affecting the core functionality.
+---
+
+## UI Usability Notes
+
+- Clear action: Click "Analyze & Visualize" to run the analysis.
+- Clear validation: Invalid inputs return readable error messages via Gradio `Error` outputs.
+- Accessible visuals: High-contrast text, simplified icons, and consistent font sizes for readability.
+- Guided workflow: “Quick Start” examples and step-by-step trace help users understand actions and results.
+- Minimal friction: Single input field, one action button, optional comparison toggle (off by default).
