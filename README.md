@@ -243,7 +243,7 @@ The problem is broken down into distinct, manageable components:
 4. In the UI:
    - Enter a list of integers such as `5, 2, 9, 1, 5`.
   - Choose whether to enable "Show algorithm comparisons (bubble & quick)" (leave OFF for strict single‑algorithm mode).
-  - Press "🚀 ANALYZE & VISUALIZE" to see:
+  - Press "ANALYZE & VISUALIZE" to see:
      - The comprehensive analysis (original vs sorted array, total comparisons, moves, and accesses).
     - If comparisons are enabled, metrics for bubble sort and quick sort.
      - The full step-by-step trace of insertion sort.
@@ -270,7 +270,7 @@ The problem is broken down into distinct, manageable components:
 ## Author & Acknowledgment
 
 - **Author**: *Aurik*
-- **Course**: CISC 121 – Introduction to Computing Science I (Queen's University)
+- **Course**: CISC 121 – Introduction to Computing Science I
 - **Acknowledgments**:
   - CISC 121 project guidelines and marking rubric for defining the requirements.
   - Gradio documentation examples for building a simple Python interface.
@@ -281,7 +281,7 @@ The problem is broken down into distinct, manageable components:
 
 ## Project Instructions (Aligned to Code)
 
-The app focuses on a single algorithm: Insertion Sort. The Gradio UI takes comma-separated integers, runs the algorithm step-by-step, and shows both the final result and each intermediate step. Optional comparison metrics for bubble and quick sort are included only for educational context.
+This final project focuses on a single algorithm: Insertion Sort. The Gradio UI takes comma-separated integers, runs the algorithm step-by-step, and shows both the final result and each intermediate step. Optional comparison metrics for bubble and quick sort are included only for educational context.
 
 - Exactly One Algorithm: Insertion Sort is the primary algorithm implemented and visualized.
 - Simple GUI: Gradio `Textbox` for input, a single `Button` to run, and outputs for summary, step trace, and a dashboard.
