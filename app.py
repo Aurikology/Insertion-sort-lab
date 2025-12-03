@@ -333,45 +333,45 @@ def run_lab(text, show_comparisons=True):
 
     # Generate interactive HTML performance dashboard
     html_viz = f"""
-    <div style="font-family: 'Courier New', monospace; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 12px; color: white; overflow-x: auto;">
-        <h3 style="margin-top: 0;">ALGORITHM PERFORMANCE DASHBOARD</h3>
-        <table style="width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
-            <tr style="background: rgba(255,255,255,0.2); font-weight: bold; border-bottom: 2px solid white;">
-                <th style="padding: 12px; text-align: left;">Metric</th>
-                <th style="padding: 12px; text-align: center;">Insertion</th>
-                {('<th style="padding: 12px; text-align: center;">Bubble</th>' if show_comparisons else '')}
-                {('<th style="padding: 12px; text-align: center;">Quick</th>' if show_comparisons else '')}
-                <th style="padding: 12px; text-align: center;">Best</th>
+    <div style="font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 15px; color: white; overflow-x: auto; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);">
+        <h3 style="margin-top: 0; font-size: 1.8em; font-weight: 600; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">ALGORITHM PERFORMANCE DASHBOARD</h3>
+        <table style="width: 100%; border-collapse: collapse; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 10px; overflow: hidden;">
+            <tr style="background: rgba(255,255,255,0.25); font-weight: bold; border-bottom: 2px solid rgba(255,255,255,0.3);">
+                <th style="padding: 15px; text-align: left; font-size: 1.1em;">Metric</th>
+                <th style="padding: 15px; text-align: center; font-size: 1.1em;">Insertion</th>
+                {('<th style="padding: 15px; text-align: center; font-size: 1.1em;">Bubble</th>' if show_comparisons else '')}
+                {('<th style="padding: 15px; text-align: center; font-size: 1.1em;">Quick</th>' if show_comparisons else '')}
+                <th style="padding: 15px; text-align: center; font-size: 1.1em;">Best</th>
             </tr>
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.2);">
-                <td style="padding: 12px;"><b>Comparisons</b></td>
-                <td style="padding: 12px; text-align: center;">{comparisons}</td>
-                {('<td style="padding: 12px; text-align: center;">' + str(bubble_comps) + '</td>' if show_comparisons else '')}
-                {('<td style="padding: 12px; text-align: center;">' + str(quick_comps) + '</td>' if show_comparisons else '')}
-                <td style="padding: 12px; text-align: center;">{('Insertion' if not show_comparisons else ('Insertion' if comparisons <= min(bubble_comps, quick_comps) else 'Quick' if quick_comps <= bubble_comps else 'Bubble'))}</td>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.15);">
+                <td style="padding: 15px; font-weight: 500;"><b>Comparisons</b></td>
+                <td style="padding: 15px; text-align: center; font-weight: 600; font-size: 1.1em;">{comparisons}</td>
+                {('<td style="padding: 15px; text-align: center; font-weight: 600; font-size: 1.1em;">' + str(bubble_comps) + '</td>' if show_comparisons else '')}
+                {('<td style="padding: 15px; text-align: center; font-weight: 600; font-size: 1.1em;">' + str(quick_comps) + '</td>' if show_comparisons else '')}
+                <td style="padding: 15px; text-align: center; font-weight: 600; background: rgba(255,255,255,0.2); border-radius: 5px;">{('Insertion' if not show_comparisons else ('Insertion' if comparisons <= min(bubble_comps, quick_comps) else 'Quick' if quick_comps <= bubble_comps else 'Bubble'))}</td>
             </tr>
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.2);">
-                <td style="padding: 12px;"><b>Array Moves</b></td>
-                <td style="padding: 12px; text-align: center;">{moves}</td>
-                {('<td style="padding: 12px; text-align: center;">' + str(bubble_moves) + '</td>' if show_comparisons else '')}
-                {('<td style="padding: 12px; text-align: center;">' + str(quick_moves) + '</td>' if show_comparisons else '')}
-                <td style="padding: 12px; text-align: center;">{'Best' if moves <= min(bubble_moves, quick_moves) else ''}</td>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.15);">
+                <td style="padding: 15px; font-weight: 500;"><b>Array Moves</b></td>
+                <td style="padding: 15px; text-align: center; font-weight: 600; font-size: 1.1em;">{moves}</td>
+                {('<td style="padding: 15px; text-align: center; font-weight: 600; font-size: 1.1em;">' + str(bubble_moves) + '</td>' if show_comparisons else '')}
+                {('<td style="padding: 15px; text-align: center; font-weight: 600; font-size: 1.1em;">' + str(quick_moves) + '</td>' if show_comparisons else '')}
+                <td style="padding: 15px; text-align: center; font-weight: 600; background: rgba(255,255,255,0.2); border-radius: 5px;">{'Best' if moves <= min(bubble_moves, quick_moves) else ''}</td>
             </tr>
             <tr>
-                <td style="padding: 12px;"><b>Total Operations</b></td>
-                <td style="padding: 12px; text-align: center;"><strong>{comparisons + moves + accesses}</strong></td>
-                {('<td style="padding: 12px; text-align: center;">' + str(bubble_comps + bubble_moves) + '</td>' if show_comparisons else '')}
-                {('<td style="padding: 12px; text-align: center;">' + str(quick_comps + quick_moves) + '</td>' if show_comparisons else '')}
-                <td style="padding: 12px; text-align: center;">✓</td>
+                <td style="padding: 15px; font-weight: 500;"><b>Total Operations</b></td>
+                <td style="padding: 15px; text-align: center;"><strong style="font-size: 1.2em; color: #ffd700;">{comparisons + moves + accesses}</strong></td>
+                {('<td style="padding: 15px; text-align: center; font-weight: 600; font-size: 1.1em;">' + str(bubble_comps + bubble_moves) + '</td>' if show_comparisons else '')}
+                {('<td style="padding: 15px; text-align: center; font-weight: 600; font-size: 1.1em;">' + str(quick_comps + quick_moves) + '</td>' if show_comparisons else '')}
+                <td style="padding: 15px; text-align: center; font-size: 1.2em;">✓</td>
             </tr>
         </table>
         <br>
-        <h4>Algorithm Rankings (Lower is Better):</h4>
-        <div style="background: rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; margin-top: 10px;">
-            {('' if show_comparisons else '<p>Comparisons disabled for single-algorithm mode.</p>')}
-            {('<p><strong>Insertion Sort wins on comparisons</strong></p>' if comparisons <= min(bubble_comps, quick_comps) else '') if show_comparisons else ''}
-            {('<p><strong>Quick Sort is most efficient overall</strong></p>' if quick_comps + quick_moves <= comparisons + moves else '') if show_comparisons else ''}
-            <p>Array Size: <strong>{len(arr)}</strong> elements</p>
+        <h4 style="margin: 20px 0 10px 0; font-size: 1.3em;">Algorithm Rankings:</h4>
+        <div style="background: rgba(255,255,255,0.15); padding: 15px; border-radius: 10px; margin-top: 10px; backdrop-filter: blur(5px);">
+            {('' if show_comparisons else '<p style="font-size: 1.05em;">Comparisons disabled for single-algorithm mode.</p>')}
+            {('<p style="font-size: 1.05em;"><strong>Insertion Sort wins on comparisons</strong></p>' if comparisons <= min(bubble_comps, quick_comps) else '') if show_comparisons else ''}
+            {('<p style="font-size: 1.05em;"><strong>Quick Sort is most efficient overall</strong></p>' if quick_comps + quick_moves <= comparisons + moves else '') if show_comparisons else ''}
+            <p style="font-size: 1.05em; margin-bottom: 0;">Array Size: <strong style="font-size: 1.2em; color: #ffd700;">{len(arr)}</strong> elements</p>
         </div>
     </div>
     """
@@ -397,13 +397,59 @@ def run_lab(text, show_comparisons=True):
 # ==================== GRADIO USER INTERFACE ====================
 
 # Create the Gradio web interface using Blocks for custom layout
-with gr.Blocks(title="Insertion Sort Laboratory") as demo:
+with gr.Blocks(
+    title="Insertion Sort Laboratory",
+    theme=gr.themes.Soft(
+        primary_hue="blue",
+        secondary_hue="slate",
+    ),
+    css="""
+        .gradio-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            background-attachment: fixed;
+        }
+        .contain {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-radius: 15px !important;
+            padding: 25px !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+        }
+        .gr-box {
+            background: white !important;
+            border-radius: 10px !important;
+        }
+        .gr-button-primary {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%) !important;
+            border: none !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+        }
+        .gr-button-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4) !important;
+            transition: all 0.3s ease !important;
+        }
+        textarea, input {
+            border: 2px solid #e5e7eb !important;
+            border-radius: 8px !important;
+        }
+        textarea:focus, input:focus {
+            border-color: #667eea !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+        }
+        h1, h2, h3 {
+            color: #1e293b !important;
+        }
+    """
+) as demo:
     
     # Header section
     gr.Markdown("""
-    <div style="font-family: 'Georgia', 'Times New Roman', serif; background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%); padding: 30px; border-radius: 8px; color: white; margin-bottom: 20px;">
-        <h1 style="margin: 0; font-size: 2.5em; font-weight: 600;">Insertion Sort Laboratory</h1>
-        <p style="margin: 10px 0 0 0; font-size: 1.1em; opacity: 0.95;">Interactive Algorithm Analysis and Visualization</p>
+    <div style="font-family: 'Georgia', 'Times New Roman', serif; background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #8b5cf6 100%); padding: 40px; border-radius: 15px; color: white; margin-bottom: 25px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);">
+        <h1 style="margin: 0; font-size: 2.8em; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Insertion Sort Laboratory</h1>
+        <p style="margin: 15px 0 0 0; font-size: 1.2em; opacity: 0.95; font-weight: 300;">Interactive Algorithm Analysis and Visualization</p>
     </div>
     """)
 
@@ -460,7 +506,8 @@ with gr.Blocks(title="Insertion Sort Laboratory") as demo:
             label="Comprehensive Analysis",
             lines=20,
             interactive=False,
-            show_label=True
+            show_label=True,
+            elem_classes="output-box"
         )
 
     with gr.Row():
@@ -468,7 +515,8 @@ with gr.Blocks(title="Insertion Sort Laboratory") as demo:
             label="Step-by-Step Execution Trace",
             lines=24,
             interactive=False,
-            show_label=True
+            show_label=True,
+            elem_classes="output-box"
         )
 
     with gr.Row():
