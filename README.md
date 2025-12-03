@@ -10,51 +10,83 @@ An interactive visualization tool that demonstrates the insertion sort algorithm
 *Figure 1: Random input test - demonstrates sorting of mixed numbers*
 
 ![Random input Analysis](screen_shots/Random_input_analysis.png)
+
+
 *Figure 2: Performance analysis showing comparisons, moves, and algorithm comparison*
 
 ![Random input Analysis (alt)](screen_shots/Analysis_Random_input.png)
+
+
 *Figure 17: Alternate analysis capture for random input*
 
 ![Random input Steps](screen_shots/Random_input_stepbystep0.png)
+
+
 *Figure 3: Step-by-step trace showing algorithm execution*
 
 ![Random input Steps](screen_shots/Random_input_Stepbystep1.png)
+
+
 *Figure 4: Continued step-by-step execution with indices and metrics*
 
 ![Random input Steps](screen_shots/Random_input_stepbystep2.png)
+
+
 *Figure 5: Final steps showing sorted result*
 
 ![Reverse input demo](screen_shots/Reversed_sorted_array.png)
+
+
 *Figure 6: Worst-case test - reverse sorted input*
 
 ![Reverse input analysis](screen_shots/Reversed_sorted_analsis.png)
+
+
 *Figure 7: Reverse sorted performance metrics and comparison*
 
 ![Reverse input steps](screen_shots/Reversed_sorted_steps0.png)
+
+
 *Figure 8: Initial steps for reverse-sorted input*
 
 ![Reverse input steps](screen_shots/Reversed_sorted_steps1.png)
+
+
 *Figure 9: Middle steps showing multiple shifts*
 
 ![Reverse input steps](screen_shots/Reversed_sorted_steps2.png)
+
+
 *Figure 10: Final steps reaching sorted state*
 
 ![Error handling demo](screen_shots/Invalid_array.png)
+
+
 *Figure 11: Input validation - error handling for invalid input*
 
 ![Invalid input analysis](screen_shots/Invalid_array_analysis.png)
+
+
 *Figure 12: Analysis view for invalid input case*
 
 ![Invalid input steps](screen_shots/Invalid_array_steps.png)
+
+
 *Figure 13: Step trace not executed due to invalid input*
 
 ![Duplicates array](screen_shots/Duplicate_array.png)
+
+
 *Figure 8: Duplicate values input demo*
 
 ![Duplicates analysis](screen_shots/Duplicate_array_analysis.png)
+
+
 *Figure 15: Duplicate values - stability of insertion sort*
 
 ![Duplicates steps](screen_shots/Duplicate_array_steps0.png)
+
+
 *Figure 16: Initial steps for duplicates case*
 
 
@@ -75,6 +107,8 @@ Insertion sort was chosen because it clearly demonstrates fundamental sorting co
 ### Flowchart
 
 ![Flowchart of app logic](screen_shots/Flowchart.png)
+
+
 *Figure 14: Application control flow diagram*
 
 The flowchart illustrates the complete algorithm workflow:
