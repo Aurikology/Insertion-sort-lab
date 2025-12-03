@@ -1,9 +1,9 @@
 """
 Insertion Sort Lab - Interactive Algorithm Visualization
 Author: Aurik
-Course: CISC 121 - Introduction to Computing Science I (Queen's University)
+Course: CISC 121 - Introduction to Computing Science I
 
-This application provides an interactive visualization of the insertion sort algorithm
+My Interaction sort application provides an interactive visualization of the insertion sort algorithm
 with step-by-step execution tracking, performance metrics, and comparisons with
 other sorting algorithms (bubble sort and quicksort).
 
