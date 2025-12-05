@@ -405,13 +405,12 @@ def run_lab(text, show_comparisons=True):
 # ==================== GRADIO USER INTERFACE ====================
 
 # Create the Gradio web interface using Blocks for custom layout
-with gr.Blocks(
-    title="Insertion Sort Laboratory",
-    theme=gr.themes.Soft(
-        primary_hue="blue",
-        secondary_hue="slate",
-    ),
-    css="""
+demo = gr.Blocks(title="Insertion Sort Laboratory")
+
+with demo:
+    # Add custom CSS
+    gr.HTML("""
+    <style>
         .gradio-container {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
             background-attachment: fixed;
@@ -450,8 +449,8 @@ with gr.Blocks(
         h1, h2, h3 {
             color: #1e293b !important;
         }
-    """
-) as demo:
+    </style>
+    """)
     
     # Header section
     gr.Markdown("""
