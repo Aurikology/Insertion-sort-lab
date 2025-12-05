@@ -263,7 +263,7 @@ The problem is broken down into distinct, manageable components:
 
 ## Hugging Face Link
 
-- Live app: *(paste your Hugging Face Spaces URL here after deployment, e.g., `https://huggingface.co/spaces/Aurikology/Insertion-Sort-Lab`)*
+- Live app: https://huggingface.co/spaces/Aurikology/Insertion-Sort-Lab
 
 ---
 
@@ -279,7 +279,7 @@ The problem is broken down into distinct, manageable components:
 
 ---
 
-## Project Instructions (Aligned to Code)
+## Project Instructions
 
 This final project focuses on a single algorithm: Insertion Sort. The Gradio UI takes comma-separated integers, runs the algorithm step-by-step, and shows both the final result and each intermediate step. Optional comparison metrics for bubble and quick sort are included only for educational context.
 
