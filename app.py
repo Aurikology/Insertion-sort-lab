@@ -332,6 +332,14 @@ def run_lab(text, show_comparisons=True):
     steps_text = "\n".join(trace_lines)
 
     # Generate interactive HTML performance dashboard
+    # Calculate best algorithm for display (only if comparisons enabled)
+    if show_comparisons:
+        best_comps = 'Insertion' if comparisons <= min(bubble_comps, quick_comps) else ('Quick' if quick_comps <= bubble_comps else 'Bubble')
+        best_moves = 'Insertion' if moves <= min(bubble_moves, quick_moves) else ('Quick' if quick_moves <= bubble_moves else 'Bubble')
+    else:
+        best_comps = 'Insertion'
+        best_moves = 'Insertion'
+    
     html_viz = f"""
     <div style="font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 25px; border-radius: 15px; color: white; overflow-x: auto; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);">
         <h3 style="margin-top: 0; font-size: 1.8em; font-weight: 600; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">ALGORITHM PERFORMANCE DASHBOARD</h3>
@@ -348,14 +356,14 @@ def run_lab(text, show_comparisons=True):
                 <td style="padding: 15px; text-align: center; font-weight: 600; font-size: 1.1em;">{comparisons}</td>
                 {('<td style="padding: 15px; text-align: center; font-weight: 600; font-size: 1.1em;">' + str(bubble_comps) + '</td>' if show_comparisons else '')}
                 {('<td style="padding: 15px; text-align: center; font-weight: 600; font-size: 1.1em;">' + str(quick_comps) + '</td>' if show_comparisons else '')}
-                <td style="padding: 15px; text-align: center; font-weight: 600; background: rgba(255,255,255,0.2); border-radius: 5px;">{('Insertion' if not show_comparisons else ('Insertion' if comparisons <= min(bubble_comps, quick_comps) else 'Quick' if quick_comps <= bubble_comps else 'Bubble'))}</td>
+                <td style="padding: 15px; text-align: center; font-weight: 600; background: rgba(255,255,255,0.2); border-radius: 5px;">{best_comps}</td>
             </tr>
             <tr style="border-bottom: 1px solid rgba(255,255,255,0.15);">
                 <td style="padding: 15px; font-weight: 500;"><b>Array Moves</b></td>
                 <td style="padding: 15px; text-align: center; font-weight: 600; font-size: 1.1em;">{moves}</td>
                 {('<td style="padding: 15px; text-align: center; font-weight: 600; font-size: 1.1em;">' + str(bubble_moves) + '</td>' if show_comparisons else '')}
                 {('<td style="padding: 15px; text-align: center; font-weight: 600; font-size: 1.1em;">' + str(quick_moves) + '</td>' if show_comparisons else '')}
-                <td style="padding: 15px; text-align: center; font-weight: 600; background: rgba(255,255,255,0.2); border-radius: 5px;">{'Best' if moves <= min(bubble_moves, quick_moves) else ''}</td>
+                <td style="padding: 15px; text-align: center; font-weight: 600; background: rgba(255,255,255,0.2); border-radius: 5px;">{best_moves}</td>
             </tr>
             <tr>
                 <td style="padding: 15px; font-weight: 500;"><b>Total Operations</b></td>
@@ -368,7 +376,7 @@ def run_lab(text, show_comparisons=True):
         <br>
         <h4 style="margin: 20px 0 10px 0; font-size: 1.3em;">Algorithm Rankings:</h4>
         <div style="background: rgba(255,255,255,0.15); padding: 15px; border-radius: 10px; margin-top: 10px; backdrop-filter: blur(5px);">
-            {('' if show_comparisons else '<p style="font-size: 1.05em;">Comparisons disabled for single-algorithm mode.</p>')}
+            {('<p style="font-size: 1.05em;">Comparisons disabled for single-algorithm mode.</p>' if not show_comparisons else '')}
             {('<p style="font-size: 1.05em;"><strong>Insertion Sort wins on comparisons</strong></p>' if comparisons <= min(bubble_comps, quick_comps) else '') if show_comparisons else ''}
             {('<p style="font-size: 1.05em;"><strong>Quick Sort is most efficient overall</strong></p>' if quick_comps + quick_moves <= comparisons + moves else '') if show_comparisons else ''}
             <p style="font-size: 1.05em; margin-bottom: 0;">Array Size: <strong style="font-size: 1.2em; color: #ffd700;">{len(arr)}</strong> elements</p>
